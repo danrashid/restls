@@ -6,5 +6,21 @@
   "repository": "https://github.com/danrashid/restls",
   "author": "Dan Rashid",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "husky": "^1.0.0-rc.13",
+    "lint-staged": "^7.2.0",
+    "prettier": "1.13.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
 }
