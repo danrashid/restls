@@ -1,3 +1,7 @@
+afterEach(() => {
+  window.localStorage.clear();
+});
+
 it("Adds a new member to a collection", () => {});
 
 it("Supports a custom id generator", () => {});

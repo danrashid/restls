@@ -1,3 +1,7 @@
+afterEach(() => {
+  window.localStorage.clear();
+});
+
 it('Expects a "request body" with an id property', () => {});
 
 it("Updates a member of a collection by id", () => {});

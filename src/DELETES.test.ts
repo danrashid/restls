@@ -1,3 +1,7 @@
+afterEach(() => {
+  window.localStorage.clear();
+});
+
 it("Deletes all matching members of a collection", () => {});
 
 it("Changes no data and emits no error if no matching members were found", () => {});

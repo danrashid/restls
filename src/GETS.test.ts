@@ -1,3 +1,7 @@
+afterEach(() => {
+  window.localStorage.clear();
+});
+
 it("Resolves with all matching members of a collection", () => {});
 
 it("Resolves with an entire collection if no match criteria were specified", () => {});
