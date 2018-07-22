@@ -1,0 +1,10 @@
+{
+  "name": "restls",
+  "version": "1.0.0",
+  "description": "A REST-like interface for localStorage",
+  "main": "index.js",
+  "repository": "https://github.com/danrashid/restls",
+  "author": "Dan Rashid",
+  "license": "MIT",
+  "private": false
+}
