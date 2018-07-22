@@ -1,6 +1,11 @@
 import { getCollection, keyValuesMatch } from "./utils";
 
-export const GETS = (key: string, where: Object, debug = false, timeout = 0) =>
+export const GETS = (
+  key: string,
+  where: Object | undefined,
+  debug = false,
+  timeout = 0
+) =>
   new Promise((resolve, reject) => {
     if (debug) {
       console.info("GETS", { key, where });
