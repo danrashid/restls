@@ -17,7 +17,7 @@ it("Rejects with an error if the specified collection was not found", () => {
 });
 
 it("Rejects with an error if the specified collection cannot be parsed", () => {
-  window.localStorage.setItem("foo", "foo");
+  window.localStorage.setItem("foo", "<<<");
   const reject = jest.fn();
   getCollection("foo", reject);
   expect(reject.mock.calls[0][0] instanceof Error).toBe(true);
