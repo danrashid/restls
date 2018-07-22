@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
     "outDir": "./build",
+    "target": "es5",
     "noImplicitAny": true,
-    "target": "es5"
+    "lib": ["es6", "dom"]
   },
   "include": ["./src/**/*"]
 }
