@@ -1,4 +1,5 @@
-export { setCollection } from "./utils/setCollection";
+export { getCollection } from "./getCollection";
+export { setCollection } from "./setCollection";
 export { DELETE } from "./DELETE";
 export { DELETES } from "./DELETES";
 export { GET } from "./GET";

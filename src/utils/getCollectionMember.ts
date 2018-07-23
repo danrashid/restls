@@ -1,4 +1,5 @@
-import { getCollection, keyValuesMatch } from ".";
+import { getCollection } from "..";
+import { keyValuesMatch } from ".";
 
 export const getCollectionMember = (
   key: string,

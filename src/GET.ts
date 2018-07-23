@@ -6,5 +6,5 @@ export const GET = (key: string, where: Object, debug = false, timeout = 0) =>
       console.info("GET", { key, where });
     }
     const data = getCollectionMember(key, where, reject);
-    window.setTimeout(() => resolve(data), timeout);
+    window.setTimeout(() => resolve({ data }), timeout);
   });

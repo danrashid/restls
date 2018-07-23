@@ -1,4 +1,5 @@
-import { getCollection, keyValuesMatch, setCollection } from "./utils";
+import { getCollection, setCollection } from ".";
+import { keyValuesMatch } from "./utils";
 
 export const DELETES = (
   key: string,
@@ -12,13 +13,11 @@ export const DELETES = (
     }
     const collection = getCollection(key, reject);
     setCollection(key, collection.filter(keyValuesMatch(where, true)));
-    return new Promise(resolve =>
-      window.setTimeout(
-        () =>
-          resolve({
-            data: {}
-          }),
-        timeout
-      )
+    window.setTimeout(
+      () =>
+        resolve({
+          data: {}
+        }),
+      timeout
     );
   });

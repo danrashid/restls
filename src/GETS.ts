@@ -1,4 +1,5 @@
-import { getCollection, keyValuesMatch } from "./utils";
+import { getCollection } from ".";
+import { keyValuesMatch } from "./utils";
 
 export const GETS = (
   key: string,

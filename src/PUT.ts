@@ -1,4 +1,5 @@
-import { getCollection, getCollectionMember, setCollection } from "./utils";
+import { getCollection, setCollection } from ".";
+import { getCollectionMember } from "./utils";
 
 export const PUT = (
   key: string,

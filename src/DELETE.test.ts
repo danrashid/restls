@@ -26,7 +26,10 @@ it("Rejects with an error if no matching member was found", async () => {
   await expect(DELETE("bar", { id: "foo" })).rejects.toThrow();
 });
 
-it("Resolves with an empty object", async () => {});
+it("Resolves with an empty object", async () => {
+  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
+  await expect(DELETE("foo", { id: "foo" })).resolves.toBe({ data: {} });
+});
 
 it("Rejects with an error if the specified collection was not found", async () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
