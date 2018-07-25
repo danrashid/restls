@@ -1,5 +1,5 @@
-import { DELETES } from "./DELETES";
-import { getCollectionMember } from "./utils";
+import { getCollection, setCollection } from ".";
+import { getCollectionMember, keyValuesMatch } from "./utils";
 
 export const DELETE = (
   key: string,
@@ -12,5 +12,13 @@ export const DELETE = (
       console.info("DELETE", { key, where });
     }
     getCollectionMember(key, where, reject);
-    return DELETES(key, where, false, timeout);
+    const collection = getCollection(key, reject);
+    setCollection(key, collection.filter(keyValuesMatch(where, true)));
+    window.setTimeout(
+      () =>
+        resolve({
+          data: {}
+        }),
+      timeout
+    );
   });

@@ -1,6 +1,8 @@
 import { DELETE } from "./DELETE";
 
-jest.useFakeTimers();
+beforeEach(() => {
+  console.info = jest.fn();
+});
 
 afterEach(() => {
   window.localStorage.clear();
@@ -28,7 +30,7 @@ it("Rejects with an error if no matching member was found", async () => {
 
 it("Resolves with an empty object", async () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
-  await expect(DELETE("foo", { id: "foo" })).resolves.toBe({ data: {} });
+  await expect(DELETE("foo", { id: "foo" })).resolves.toEqual({ data: {} });
 });
 
 it("Rejects with an error if the specified collection was not found", async () => {
@@ -36,6 +38,14 @@ it("Rejects with an error if the specified collection was not found", async () =
   await expect(DELETE("bar", { id: "foo" })).rejects.toThrow();
 });
 
-it("Outputs debugging information if specified", () => {});
+it("Outputs debugging information if specified", async () => {
+  const key = "foo";
+  const where = { id: "foo" };
+  DELETE(key, where, true);
+  expect(console.info).toHaveBeenCalledWith("DELETE", {
+    key,
+    where
+  });
+});
 
 it("Supports faking latency with a timeout", () => {});
