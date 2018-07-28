@@ -1,3 +1,9 @@
+import { PUT } from "./PUT";
+
+beforeEach(() => {
+  console.info = jest.fn();
+});
+
 afterEach(() => {
   window.localStorage.clear();
 });

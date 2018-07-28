@@ -1,3 +1,9 @@
+import { POST } from "./POST";
+
+beforeEach(() => {
+  console.info = jest.fn();
+});
+
 afterEach(() => {
   window.localStorage.clear();
 });

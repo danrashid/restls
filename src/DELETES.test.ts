@@ -1,5 +1,9 @@
 import { DELETES } from "./DELETES";
 
+beforeEach(() => {
+  console.info = jest.fn();
+});
+
 afterEach(() => {
   window.localStorage.clear();
 });
@@ -28,6 +32,14 @@ it("Rejects with an error if the specified collection was not found", async () =
   await expect(DELETES("bar", { id: "foo" })).rejects.toThrow();
 });
 
-it("Outputs debugging information if specified", () => {});
+it("Outputs debugging information if specified", async () => {
+  const key = "foo";
+  const where = { id: "foo" };
+  DELETES(key, where, true);
+  expect(console.info).toHaveBeenCalledWith("DELETES", {
+    key,
+    where
+  });
+});
 
 it("Supports faking latency with a timeout", () => {});
