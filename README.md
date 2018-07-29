@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/danrashid/restls.svg?branch=master)](https://travis-ci.org/danrashid/restls)
+[![Build Status](https://travis-ci.org/danrashid/restls.svg?branch=master)](https://travis-ci.org/danrashid/restls) [![Coverage Status](https://coveralls.io/repos/github/danrashid/restls/badge.svg?branch=master)](https://coveralls.io/github/danrashid/restls?branch=master)
 
 # restls
 
