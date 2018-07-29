@@ -8,7 +8,7 @@ afterEach(() => {
   window.localStorage.clear();
 });
 
-it("Deletes all matching members of a collection", () => {
+it("Deletes all matching members of a collection", async () => {
   window.localStorage.setItem(
     "foo",
     JSON.stringify([
@@ -17,7 +17,7 @@ it("Deletes all matching members of a collection", () => {
       { id: "bar", index: 2 }
     ])
   );
-  DELETE("foo", { id: "foo" });
+  await DELETE("foo", { id: "foo" });
   expect(window.localStorage.getItem("foo")).toBe(
     JSON.stringify([{ id: "bar", index: 2 }])
   );
@@ -25,7 +25,7 @@ it("Deletes all matching members of a collection", () => {
 
 it("Rejects with an error if no matching member was found", async () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
-  await expect(DELETE("bar", { id: "foo" })).rejects.toThrow();
+  await expect(DELETE("foo", { id: "bar" })).rejects.toThrow();
 });
 
 it("Resolves with an empty object", async () => {
@@ -38,7 +38,8 @@ it("Rejects with an error if the specified collection was not found", async () =
   await expect(DELETE("bar", { id: "foo" })).rejects.toThrow();
 });
 
-it("Outputs debugging information if specified", async () => {
+it("Outputs debugging information if specified", () => {
+  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
   const key = "foo";
   const where = { id: "foo" };
   DELETE(key, where, true);
@@ -48,4 +49,18 @@ it("Outputs debugging information if specified", async () => {
   });
 });
 
-it("Supports faking latency with a timeout", () => {});
+it("Supports faking latency with a timeout", async () => {
+  jest.useFakeTimers();
+  window.localStorage.setItem(
+    "foo",
+    JSON.stringify([
+      { id: "foo", index: 0 },
+      { id: "foo", index: 1 },
+      { id: "bar", index: 2 }
+    ])
+  );
+  const promise = DELETE("foo", { id: "foo" }, undefined, 10000);
+  jest.advanceTimersByTime(10000);
+  await expect(promise).resolves.toHaveProperty("data");
+  jest.useRealTimers();
+});

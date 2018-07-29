@@ -8,7 +8,7 @@ afterEach(() => {
   window.localStorage.clear();
 });
 
-it("Resolves with the first matching member of a collection", () => {
+it("Resolves with the first matching member of a collection", async () => {
   window.localStorage.setItem(
     "foo",
     JSON.stringify([
@@ -17,22 +17,23 @@ it("Resolves with the first matching member of a collection", () => {
       { id: "foo", index: 2 }
     ])
   );
-  expect(GET("foo", { id: "foo" })).resolves.toBe({
+  await expect(GET("foo", { id: "foo" })).resolves.toEqual({
     data: { id: "foo", index: 1 }
   });
 });
 
 it("Rejects with an error if no matching member was found", async () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
-  await expect(GET("bar", { id: "foo" })).rejects.toThrow();
+  await expect(GET("foo", { id: "bar" })).rejects.toThrow();
 });
 
 it("Rejects with an error if the specified collection was not found", async () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
-  await expect(GET("bar", { id: "foo" })).rejects.toThrow();
+  await expect(GET("bar", { id: "bar" })).rejects.toThrow();
 });
 
 it("Outputs debugging information if specified", () => {
+  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
   const key = "foo";
   const where = { id: "foo" };
   GET(key, where, true);
@@ -42,4 +43,11 @@ it("Outputs debugging information if specified", () => {
   });
 });
 
-it("Supports faking latency with a timeout", () => {});
+it("Supports faking latency with a timeout", async () => {
+  jest.useFakeTimers();
+  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 1 }]));
+  const promise = GET("foo", { id: "foo" }, undefined, 10000);
+  jest.advanceTimersByTime(10000);
+  await expect(promise).resolves.toHaveProperty("data");
+  jest.useRealTimers();
+});

@@ -11,13 +11,17 @@ export const DELETES = (
     if (debug) {
       console.info("DELETES", { key, where });
     }
-    const collection = getCollection(key, reject);
-    setCollection(key, collection.filter(keyValuesMatch(where, true)));
-    window.setTimeout(
-      () =>
-        resolve({
-          data: {}
-        }),
-      timeout
-    );
+    try {
+      const collection = getCollection(key);
+      setCollection(key, collection.filter(keyValuesMatch(where, true)));
+      window.setTimeout(
+        () =>
+          resolve({
+            data: {}
+          }),
+        timeout
+      );
+    } catch (e) {
+      reject(e);
+    }
   });

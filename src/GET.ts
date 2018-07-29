@@ -5,6 +5,10 @@ export const GET = (key: string, where: Object, debug = false, timeout = 0) =>
     if (debug) {
       console.info("GET", { key, where });
     }
-    const data = getCollectionMember(key, where, reject);
-    window.setTimeout(() => resolve({ data }), timeout);
+    try {
+      const data = getCollectionMember(key, where);
+      window.setTimeout(() => resolve({ data }), timeout);
+    } catch (e) {
+      reject(e);
+    }
   });

@@ -10,16 +10,19 @@ it("Gets an item out of localStorage by key", () => {
     index: 0
   });
   window.localStorage.setItem("foo", foo);
-  expect(getItem("foo", () => {})).toBe(foo);
+  expect(getItem("foo")).toBe(foo);
 });
 
-it("Rejects with an error if no item in localStorage has the specified key", () => {
+it("Throws if no item in localStorage has the specified key", done => {
   const reject = jest.fn();
   const foo = JSON.stringify({
     id: "foo",
     index: 0
   });
   window.localStorage.setItem("foo", foo);
-  getItem("bar", reject);
-  expect(reject.mock.calls[0][0] instanceof Error).toBe(true);
+  try {
+    getItem("bar");
+  } catch (e) {
+    done();
+  }
 });

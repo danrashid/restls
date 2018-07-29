@@ -12,14 +12,18 @@ export const POST = (
     if (debug) {
       console.info("POST", { key, body });
     }
-    const collection = getCollection(key, reject);
-    const data = { ...body, id: idGenerator() };
-    setCollection(key, [...collection, data]);
-    window.setTimeout(
-      () =>
-        resolve({
-          data
-        }),
-      timeout
-    );
+    try {
+      const collection = getCollection(key);
+      const data = { ...body, id: idGenerator() };
+      setCollection(key, [...collection, data]);
+      window.setTimeout(
+        () =>
+          resolve({
+            data
+          }),
+        timeout
+      );
+    } catch (e) {
+      reject(e);
+    }
   });

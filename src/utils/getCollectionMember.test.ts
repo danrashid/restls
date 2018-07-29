@@ -18,13 +18,13 @@ it("Returns only the first matching member of a collection", () => {
       }
     ])
   );
-  expect(getCollectionMember("foo", { id: "foo" }, () => {})).toEqual({
+  expect(getCollectionMember("foo", { id: "foo" })).toEqual({
     id: "foo",
     index: 0
   });
 });
 
-it("Rejects with an error if no matching member was found", () => {
+it("Throws if no matching member was found", done => {
   const reject = jest.fn();
   window.localStorage.setItem(
     "foo",
@@ -35,6 +35,9 @@ it("Rejects with an error if no matching member was found", () => {
       }
     ])
   );
-  getCollectionMember("foo", { id: "bar" }, reject);
-  expect(reject.mock.calls[0][0] instanceof Error).toBe(true);
+  try {
+    getCollectionMember("foo", { id: "bar" });
+  } catch (e) {
+    done();
+  }
 });

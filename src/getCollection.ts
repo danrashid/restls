@@ -1,5 +1,6 @@
-import { getItem, parseJSON } from "./utils";
+import { getItem } from "./utils";
 
-export const getCollection = (key: string, reject: (e: Error) => void) => {
-  return parseJSON(getItem(key, reject), reject);
+export const getCollection = (key: string) => {
+  const item = getItem(key);
+  return JSON.parse(item);
 };

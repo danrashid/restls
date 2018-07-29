@@ -11,14 +11,18 @@ export const DELETE = (
     if (debug) {
       console.info("DELETE", { key, where });
     }
-    getCollectionMember(key, where, reject);
-    const collection = getCollection(key, reject);
-    setCollection(key, collection.filter(keyValuesMatch(where, true)));
-    window.setTimeout(
-      () =>
-        resolve({
-          data: {}
-        }),
-      timeout
-    );
+    try {
+      getCollectionMember(key, where);
+      const collection = getCollection(key);
+      setCollection(key, collection.filter(keyValuesMatch(where, true)));
+      window.setTimeout(
+        () =>
+          resolve({
+            data: {}
+          }),
+        timeout
+      );
+    } catch (e) {
+      reject(e);
+    }
   });
