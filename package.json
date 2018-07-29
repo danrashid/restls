@@ -1,9 +1,9 @@
 {
   "name": "restls",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A REST-like interface for localStorage",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "build/dist/index.js",
+  "types": "build/dist/index.d.ts",
   "repository": "https://github.com/danrashid/restls",
   "author": "Dan Rashid",
   "license": "MIT",
