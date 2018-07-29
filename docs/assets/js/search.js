@@ -1,7 +1,12 @@
 var typedoc = typedoc || {};
 typedoc.search = typedoc.search || {};
 typedoc.search.data = {
-  kinds: { "1": "External module", "64": "Function" },
+  kinds: {
+    "1": "External module",
+    "64": "Function",
+    "256": "Interface",
+    "1024": "Property"
+  },
   rows: [
     {
       id: 0,
@@ -51,12 +56,35 @@ typedoc.search.data = {
     {
       id: 6,
       kind: 1,
+      name: '"interfaces/body"',
+      url: "modules/_interfaces_body_.html",
+      classes: "tsd-kind-external-module"
+    },
+    {
+      id: 7,
+      kind: 256,
+      name: "IBody",
+      url: "interfaces/_interfaces_body_.ibody.html",
+      classes: "tsd-kind-interface tsd-parent-kind-external-module",
+      parent: '"interfaces/body"'
+    },
+    {
+      id: 8,
+      kind: 1024,
+      name: "id",
+      url: "interfaces/_interfaces_body_.ibody.html#id",
+      classes: "tsd-kind-property tsd-parent-kind-interface",
+      parent: '"interfaces/body".IBody'
+    },
+    {
+      id: 9,
+      kind: 1,
       name: '"GET"',
       url: "modules/_get_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 7,
+      id: 10,
       kind: 64,
       name: "GET",
       url: "modules/_get_.html#get",
@@ -64,14 +92,14 @@ typedoc.search.data = {
       parent: '"GET"'
     },
     {
-      id: 8,
+      id: 11,
       kind: 1,
       name: '"GETS"',
       url: "modules/_gets_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 9,
+      id: 12,
       kind: 64,
       name: "GETS",
       url: "modules/_gets_.html#gets",
@@ -79,14 +107,14 @@ typedoc.search.data = {
       parent: '"GETS"'
     },
     {
-      id: 10,
+      id: 13,
       kind: 1,
       name: '"POST"',
       url: "modules/_post_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 11,
+      id: 14,
       kind: 64,
       name: "POST",
       url: "modules/_post_.html#post",
@@ -94,14 +122,14 @@ typedoc.search.data = {
       parent: '"POST"'
     },
     {
-      id: 12,
+      id: 15,
       kind: 1,
       name: '"PUT"',
       url: "modules/_put_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 13,
+      id: 16,
       kind: 64,
       name: "PUT",
       url: "modules/_put_.html#put",
@@ -109,14 +137,14 @@ typedoc.search.data = {
       parent: '"PUT"'
     },
     {
-      id: 14,
+      id: 17,
       kind: 1,
       name: '"PATCH"',
       url: "modules/_patch_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 15,
+      id: 18,
       kind: 64,
       name: "PATCH",
       url: "modules/_patch_.html#patch",
@@ -124,14 +152,14 @@ typedoc.search.data = {
       parent: '"PATCH"'
     },
     {
-      id: 16,
+      id: 19,
       kind: 1,
       name: '"DELETE"',
       url: "modules/_delete_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 17,
+      id: 20,
       kind: 64,
       name: "DELETE",
       url: "modules/_delete_.html#delete",

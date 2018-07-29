@@ -1,6 +1,7 @@
 import { getCollectionMember } from "./utils";
+import { IBody } from "./interfaces/body";
 
-export const GET = (key: string, where: Object, debug = false, timeout = 0) =>
+export const GET = (key: string, where: IBody, debug = false, timeout = 0) =>
   new Promise((resolve, reject) => {
     if (debug) {
       console.info("GET", { key, where });

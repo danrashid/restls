@@ -1,12 +1,8 @@
 import { getCollection, setCollection } from ".";
 import { getCollectionMember } from "./utils";
+import { IBody } from "./interfaces/body";
 
-export const PATCH = (
-  key: string,
-  body: { id: string; [key: string]: any },
-  debug = false,
-  timeout = 0
-) =>
+export const PATCH = (key: string, body: IBody, debug = false, timeout = 0) =>
   new Promise((resolve, reject) => {
     if (debug) {
       console.info("PATCH", { key, body });
