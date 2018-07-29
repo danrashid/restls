@@ -14,7 +14,6 @@ it("Gets an item out of localStorage by key", () => {
 });
 
 it("Throws if no item in localStorage has the specified key", done => {
-  const reject = jest.fn();
   const foo = JSON.stringify({
     id: "foo",
     index: 0

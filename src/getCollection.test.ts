@@ -10,8 +10,7 @@ it("Gets and parses a collection", () => {
   expect(getCollection("foo")).toEqual(foo);
 });
 
-it("Rejects with an error if the specified collection was not found", done => {
-  const reject = jest.fn();
+it("Throws if the specified collection was not found", done => {
   try {
     getCollection("foo");
   } catch (e) {
@@ -19,9 +18,8 @@ it("Rejects with an error if the specified collection was not found", done => {
   }
 });
 
-it("Rejects with an error if the specified collection cannot be parsed", done => {
+it("Throws if the specified collection cannot be parsed", done => {
   window.localStorage.setItem("foo", "<<<");
-  const reject = jest.fn();
   try {
     getCollection("foo");
   } catch (e) {

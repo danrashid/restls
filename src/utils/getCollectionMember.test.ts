@@ -25,7 +25,6 @@ it("Returns only the first matching member of a collection", () => {
 });
 
 it("Throws if no matching member was found", done => {
-  const reject = jest.fn();
   window.localStorage.setItem(
     "foo",
     JSON.stringify([
