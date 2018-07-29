@@ -75,10 +75,11 @@
 					<li><code>GETS</code> (a plural GET)</li>
 					<li><code>POST</code> (generates <code>{id: [UUIDv4], ...}</code> by default)</li>
 					<li><code>PUT</code></li>
+					<li><code>PATCH</code></li>
 					<li><code>DELETE</code></li>
 					<li><code>DELETES</code> (a plural DELETE)</li>
 				</ul>
-				<p>All return a promise that resolves with <code>{ data: Object | Array }</code> or rejects with an error.</p>
+				<p>All return a Promise that resolves with <code>{ data: Object | Array }</code> or rejects with an error.</p>
 				<p>Every collection member is expected to have a unique <code>id</code> property.</p>
 				<h4 id="usage-example">Usage example</h4>
 				<p>Seed some data</p>
@@ -149,6 +150,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_gets_.html">"GETS"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_patch_.html">"PATCH"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_post_.html">"POST"</a>

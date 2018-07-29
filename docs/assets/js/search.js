@@ -111,12 +111,27 @@ typedoc.search.data = {
     {
       id: 14,
       kind: 1,
+      name: '"PATCH"',
+      url: "modules/_patch_.html",
+      classes: "tsd-kind-external-module"
+    },
+    {
+      id: 15,
+      kind: 64,
+      name: "PATCH",
+      url: "modules/_patch_.html#patch",
+      classes: "tsd-kind-function tsd-parent-kind-external-module",
+      parent: '"PATCH"'
+    },
+    {
+      id: 16,
+      kind: 1,
       name: '"DELETE"',
       url: "modules/_delete_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 15,
+      id: 17,
       kind: 64,
       name: "DELETE",
       url: "modules/_delete_.html#delete",

@@ -18,10 +18,11 @@ The following fake HTTP methods are supported:
 - `GETS` (a plural GET)
 - `POST` (generates `{id: [UUIDv4], ...}` by default)
 - `PUT`
+- `PATCH`
 - `DELETE`
 - `DELETES` (a plural DELETE)
 
-All return a promise that resolves with `{ data: Object | Array }` or rejects with an error.
+All return a Promise that resolves with `{ data: Object | Array }` or rejects with an error.
 
 Every collection member is expected to have a unique `id` property.
 

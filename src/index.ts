@@ -6,3 +6,4 @@ export { GET } from "./GET";
 export { GETS } from "./GETS";
 export { POST } from "./POST";
 export { PUT } from "./PUT";
+export { PATCH } from "./PATCH";
