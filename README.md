@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/danrashid/restls.svg?branch=master)](https://travis-ci.org/danrashid/restls)
+
 # restls
 
 ### A REST-like interface for localStorage
