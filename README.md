@@ -70,7 +70,7 @@ Returns a Promise that resolves with:
       title: "Moby-Dick; or, The Whale",
       author: "Herman Melville"
     }
-  ];
+  ]
 }
 ```
 
