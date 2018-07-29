@@ -1,4 +1,5 @@
 import { getCollection, setCollection } from ".";
+import { IBody } from "./interfaces/body";
 import { v4 as uuid } from "uuid";
 
 export const POST = (
@@ -6,7 +7,7 @@ export const POST = (
   body: Object,
   debug = false,
   timeout = 0,
-  idGenerator: () => string | number = uuid
+  idGenerator: () => IBody["id"] = uuid
 ) =>
   new Promise((resolve, reject) => {
     if (debug) {
