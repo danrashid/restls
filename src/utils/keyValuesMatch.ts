@@ -1,4 +1,4 @@
-interface IWhere {
+export interface IWhere {
   [key: string]: any;
 }
 
