@@ -22,13 +22,13 @@ The following fake HTTP methods are supported:
 - `DELETE`
 - `DELETES` (a plural DELETE)
 
-All return a Promise that resolves with `{ data: Object | Array }` or rejects with an error.
+All return a Promise that resolves with `{ data: IBody | IBody[] }` or rejects with an error.
 
 Every collection member is expected to have a unique `id` property.
 
 #### Usage example
 
-Seed some data
+1.  Seed some data
 
 ```
 setCollection("books", [
@@ -50,13 +50,13 @@ setCollection("books", [
 ]);
 ```
 
-Fetch some data
+2.  Fetch some data
 
 ```
 GET("books", { author: "Herman Melville" });
 ```
 
-Returns a Promise that resolves with:
+3.  Returns a Promise that resolves with:
 
 ```
 {
