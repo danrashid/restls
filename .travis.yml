@@ -1,9 +1,11 @@
 language: node_js
 node_js:
-- lts/*
+  - lts/*
 cache: yarn
-jobs:
-  include:
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.7.0
+  - export PATH="$HOME/.yarn/bin:$PATH"jobs:
+include:
   - stage: Produce Coverage
     node_js: node
     script: jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
