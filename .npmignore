@@ -1,6 +1,6 @@
-.vscode/
-coverage/
-docs/
-src/
-test/
-*.ts
+# https://github.com/yarnpkg/yarn/issues/2986#issuecomment-331737276
+# ignore everything
+/*
+
+# except
+!dist
