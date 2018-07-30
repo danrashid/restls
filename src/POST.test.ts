@@ -47,15 +47,22 @@ it("Resolves with the new member, with an id", async () => {
   ).resolves.toEqual({ data: { id: "bar", name: "bar", index: 1 } });
 });
 
+it("Rejects with an error if the generated id is not unique to the collection", async () => {
+  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
+  await expect(
+    POST("foo", {}, undefined, undefined, () => "foo")
+  ).rejects.toThrow();
+});
+
 it("Rejects with an error if the specified collection was not found", async () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
-  await expect(POST("bar", { id: "foo" })).rejects.toThrow();
+  await expect(POST("bar", {})).rejects.toThrow();
 });
 
 it("Outputs debugging information if specified", () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
   const key = "foo";
-  const body = { id: "foo", index: 0 };
+  const body = { index: 0 };
   POST(key, body, true);
   expect(console.info).toHaveBeenCalledWith("POST", {
     key,
