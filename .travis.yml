@@ -1,11 +1,15 @@
 language: node_js
 node_js:
-  - "lts/*"
+- lts/*
 cache: yarn
-
-# https://github.com/Ethan-Arrowood/harperdb-connect/blob/master/.travis.yml
 jobs:
   include:
-    - stage: Produce Coverage
-      node_js: node
-      script: jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+  - stage: Produce Coverage
+    node_js: node
+    script: jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+      && rm -rf ./coverage
+deploy:
+  api_key:
+    secure: FtGXThHzwmWvaEtsXMsFHQzrQxgKDfrVeaFz8Fn/PPVQuV85Auk0GDjGdqJJ5LOFBBrXfKSN5ijTwKxtqY52aueOKZLaTdO5LjX0bsTA9HwLo+K+aHf2yuVlP2CK+OOKRaFRtQ08qryeBcgiqRXLo/goJME773TYvZgXrn4krU0vPpVCTtzW0innmfkcjMPb0AEbKsjhKT16Z5wYYxspd81jeeML9t3bJkocg2xOEPsg6pXnv4LPYXbZhBc0rF7oo43I6yQm+vf1iH5UaVKTUtNQGhoq+0ycEFkp1vjo3g0Ce6UcVrBNNnXBqbBbFDyF3q7AQP3CIQf9B24FcdL8LFPewCv24ySBZyZ7tSzVdQm7yHE+XRYgEbGhNYt+4h9PSncQwlBlUc5YD8cqX2MV1YICdQeAx7pYcHsQIscb2z3MxLqOkxBOstMmtDR+rAwDRSM0BMgMrlY0nPYzgxXbKhTBr7oaLOWVBlAMbAEsN3nu8JJc0pfEXV7Rbll6TDrRkzYKExVMJxh7pT09+LzlBG1z+pgjMsTyej2bF8BQN+3e0XWMStFee1QzraPU8nxKrQQT5cei7B1ta/wKYt2PRr/9dmzxIzI/TLioWoAkykGVJzq/McZJSTQvwDnya3gp3COQKteVot6MiC3yKhVJMCZ/Z2hwxiED4erBO7UXcTg=
+  on:
+    branch: master
