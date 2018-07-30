@@ -26,42 +26,12 @@ typedoc.search.data = {
     {
       id: 2,
       kind: 1,
-      name: '"setCollection"',
-      url: "modules/_setcollection_.html",
-      classes: "tsd-kind-external-module"
-    },
-    {
-      id: 3,
-      kind: 64,
-      name: "setCollection",
-      url: "modules/_setcollection_.html#setcollection",
-      classes: "tsd-kind-function tsd-parent-kind-external-module",
-      parent: '"setCollection"'
-    },
-    {
-      id: 4,
-      kind: 1,
-      name: '"DELETES"',
-      url: "modules/_deletes_.html",
-      classes: "tsd-kind-external-module"
-    },
-    {
-      id: 5,
-      kind: 64,
-      name: "DELETES",
-      url: "modules/_deletes_.html#deletes",
-      classes: "tsd-kind-function tsd-parent-kind-external-module",
-      parent: '"DELETES"'
-    },
-    {
-      id: 6,
-      kind: 1,
       name: '"interfaces/body"',
       url: "modules/_interfaces_body_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 7,
+      id: 3,
       kind: 256,
       name: "IBody",
       url: "interfaces/_interfaces_body_.ibody.html",
@@ -69,12 +39,42 @@ typedoc.search.data = {
       parent: '"interfaces/body"'
     },
     {
-      id: 8,
+      id: 4,
       kind: 1024,
       name: "id",
       url: "interfaces/_interfaces_body_.ibody.html#id",
       classes: "tsd-kind-property tsd-parent-kind-interface",
       parent: '"interfaces/body".IBody'
+    },
+    {
+      id: 5,
+      kind: 1,
+      name: '"setCollection"',
+      url: "modules/_setcollection_.html",
+      classes: "tsd-kind-external-module"
+    },
+    {
+      id: 6,
+      kind: 64,
+      name: "setCollection",
+      url: "modules/_setcollection_.html#setcollection",
+      classes: "tsd-kind-function tsd-parent-kind-external-module",
+      parent: '"setCollection"'
+    },
+    {
+      id: 7,
+      kind: 1,
+      name: '"DELETES"',
+      url: "modules/_deletes_.html",
+      classes: "tsd-kind-external-module"
+    },
+    {
+      id: 8,
+      kind: 64,
+      name: "DELETES",
+      url: "modules/_deletes_.html#deletes",
+      classes: "tsd-kind-function tsd-parent-kind-external-module",
+      parent: '"DELETES"'
     },
     {
       id: 9,

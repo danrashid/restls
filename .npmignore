@@ -1,0 +1,6 @@
+.vscode/
+coverage/
+docs/
+src/
+test/
+*.ts
