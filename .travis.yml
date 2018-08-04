@@ -5,10 +5,7 @@ cache: yarn
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.7.0
   - export PATH="$HOME/.yarn/bin:$PATH"
-include:
-  - stage: Produce Coverage
-    node_js: node
-    script: jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+before_script: jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       && rm -rf ./coverage
 script: yarn build
 deploy:
