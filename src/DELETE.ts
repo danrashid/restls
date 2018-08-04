@@ -1,8 +1,13 @@
 import { getCollection, setCollection } from ".";
 import { getCollectionMember, keyValuesMatch } from "./utils";
-import { IBody } from "./interfaces/body";
+import { IQuery } from "./interfaces/query";
 
-export const DELETE = (key: string, where: IBody, debug = false, timeout = 0) =>
+export const DELETE = (
+  key: string,
+  where: IQuery,
+  debug = false,
+  timeout = 0
+): Promise<{ data: {} }> =>
   new Promise((resolve, reject) => {
     if (debug) {
       console.info("DELETE", { key, where });

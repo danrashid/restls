@@ -16,13 +16,13 @@ The following fake HTTP methods are supported:
 
 - `GET`
 - `GETS` (a plural GET)
-- `POST` (generates `{id: [UUIDv4], ...}` by default)
+- `POST` (generates `{id: [UUIDv4], ...}` by default (our only runtime dependency :)))
 - `PUT`
 - `PATCH`
 - `DELETE`
 - `DELETES` (a plural DELETE)
 
-All return a Promise that resolves with `{ data: IBody | IBody[] }` or rejects with an error.
+All return a Promise that resolves with `{ data: IMember | Array<IMember> | {} }` or rejects with an error.
 
 Every collection member is expected to have a unique `id` property.
 

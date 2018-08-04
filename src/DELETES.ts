@@ -1,12 +1,13 @@
 import { getCollection, setCollection } from ".";
+import { IQuery } from "./interfaces/query";
 import { keyValuesMatch } from "./utils";
 
 export const DELETES = (
   key: string,
-  where: Object,
+  where: IQuery,
   debug = false,
   timeout = 0
-) =>
+): Promise<{ data: {} }> =>
   new Promise((resolve, reject) => {
     if (debug) {
       console.info("DELETES", { key, where });

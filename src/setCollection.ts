@@ -1,5 +1,5 @@
-import { IBody } from "./interfaces/body";
+import { IMember } from "./interfaces/member";
 
-export const setCollection = (key: string, value: Array<IBody> | Object) => {
+export const setCollection = (key: string, value: Array<IMember>) => {
   localStorage.setItem(key, JSON.stringify(value));
 };

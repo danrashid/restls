@@ -1,8 +1,13 @@
 import { getCollection, setCollection } from ".";
 import { getCollectionMember } from "./utils";
-import { IBody } from "./interfaces/body";
+import { IMember } from "./interfaces/member";
 
-export const PUT = (key: string, body: IBody, debug = false, timeout = 0) =>
+export const PUT = <T extends IMember>(
+  key: string,
+  body: T,
+  debug = false,
+  timeout = 0
+): Promise<{ data: T }> =>
   new Promise((resolve, reject) => {
     if (debug) {
       console.info("PUT", { key, body });

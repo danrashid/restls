@@ -1,7 +1,8 @@
 import { getCollection } from "..";
+import { IQuery } from "../interfaces/query";
 import { keyValuesMatch } from ".";
 
-export const getCollectionMember = (key: string, where: Object) => {
+export const getCollectionMember = (key: string, where: IQuery) => {
   const member = getCollection(key).find(keyValuesMatch(where));
   if (member) {
     return member;

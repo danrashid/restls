@@ -1,13 +1,11 @@
-export interface IWhere {
-  [key: string]: any;
-}
+import { IQuery } from "../interfaces/query";
 
-export const keyValuesMatch = (where: IWhere, negate = false) => (
+export const keyValuesMatch = (where: IQuery, negate = false) => (
   member: Object
-): Boolean => {
+): boolean => {
   const result = Object.keys(where).every(
     prop =>
-      prop.split(".").reduce((a: IWhere, b: string) => a[b], member) ===
+      prop.split(".").reduce((a: IQuery, b: string) => a[b], member) ===
       where[prop]
   );
   return negate ? !result : result;

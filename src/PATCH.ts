@@ -1,8 +1,13 @@
 import { getCollection, setCollection } from ".";
 import { getCollectionMember } from "./utils";
-import { IBody } from "./interfaces/body";
+import { IMember } from "./interfaces/member";
 
-export const PATCH = (key: string, body: IBody, debug = false, timeout = 0) =>
+export const PATCH = (
+  key: string,
+  body: IMember,
+  debug = false,
+  timeout = 0
+): Promise<{ data: {} }> =>
   new Promise((resolve, reject) => {
     if (debug) {
       console.info("PATCH", { key, body });
@@ -17,13 +22,7 @@ export const PATCH = (key: string, body: IBody, debug = false, timeout = 0) =>
             member.id === body.id ? { ...member, ...body } : member
         )
       );
-      window.setTimeout(
-        () =>
-          resolve({
-            data: {}
-          }),
-        timeout
-      );
+      window.setTimeout(() => resolve({ data: {} }), timeout);
     } catch (e) {
       reject(e);
     }
