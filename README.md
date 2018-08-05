@@ -26,6 +26,8 @@ All return a Promise that resolves with `{ data: IMember | Array<IMember> | {} }
 
 Every collection member is expected to have a unique `id` property.
 
+For more information, see the [generated docs](https://www.danrashid.com/restls/) and [test specs](https://www.danrashid.com/restls/test/).
+
 #### Usage example
 
 1.  Seed some data

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>restls/test</title>
+    <style>
+        body,
+        a {
+            color: #e5e5e5;
+        }
+
+        body {
+            background: #1a1a1a;
+            font: 1em/1.5em sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>restls/test</h2>
+    <p>Generated with
+        <code>jest --json</code>
+    </p>
+    <div id="root"></div>
+    <p>EOF</p>
+    <script>
+        function reqListener() {
+            var json = JSON.parse(this.responseText);
+            var html = json.testResults.map(function (tr) {
+                var name = tr.name.match(/[\w\.]+$/)[0];
+                return '<h4><a href="https://github.com/danrashid/restls/tree/master/src/' + name + '">' + name + "</a></h4>\n<ul>\n" + tr.assertionResults.map(function (ar) {
+                    return "<li>" + ar.fullName + "</li>\n";
+                }).join("\n") + "</ul>";
+            }).join("\n");
+            document.getElementById("root").innerHTML = html;
+        }
+
+        var oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", reqListener);
+        oReq.open("GET", "./specs.json");
+        oReq.send();
+    </script>
+</body>
+
+</html>
