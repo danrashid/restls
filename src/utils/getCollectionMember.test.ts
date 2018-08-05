@@ -18,7 +18,7 @@ it("Returns only the first matching member of a collection", () => {
       }
     ])
   );
-  expect(getCollectionMember("foo", { id: "foo" })).toEqual({
+  expect(getCollectionMember("foo", "foo")).toEqual({
     id: "foo",
     index: 0
   });
@@ -35,7 +35,7 @@ it("Throws if no matching member was found", done => {
     ])
   );
   try {
-    getCollectionMember("foo", { id: "bar" });
+    getCollectionMember("foo", "bar");
   } catch (e) {
     done();
   }

@@ -1,11 +1,9 @@
 import { getCollection } from ".";
 import { IMember } from "./interfaces/member";
-import { IQuery } from "./interfaces/query";
-import { keyValuesMatch } from "./utils";
 
 export const GETS = <T extends IMember>(
   key: string,
-  where?: IQuery,
+  where?: (member: T) => boolean,
   debug = false,
   timeout = 0
 ): Promise<{ data: Array<T> }> =>
@@ -16,9 +14,7 @@ export const GETS = <T extends IMember>(
     try {
       const collection = getCollection(key);
       window.setTimeout(() => {
-        const data = where
-          ? collection.filter(keyValuesMatch(where))
-          : collection;
+        const data = where ? collection.filter(where) : collection;
         resolve({
           data
         });

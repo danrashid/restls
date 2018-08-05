@@ -18,7 +18,7 @@ export const POST = <T extends IMember>(
       const collection = getCollection(key);
       if (collection.some((member: IMember) => member.id === id)) {
         throw new Error(
-          `Collection "${key}" already has a member with id "${id}"`
+          `Collection "${key}" already has a member with id "${id}".`
         );
       }
       const data = { ...body, id } as any;

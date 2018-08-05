@@ -1,6 +1,6 @@
-import { getCollection, setCollection } from ".";
 import { getCollectionMember } from "./utils";
 import { IMember } from "./interfaces/member";
+import { setCollection } from ".";
 
 export const PUT = <T extends IMember>(
   key: string,
@@ -13,14 +13,10 @@ export const PUT = <T extends IMember>(
       console.info("PUT", { key, body });
     }
     try {
-      const collection = getCollection(key);
-      getCollectionMember(key, { id: body.id });
-      setCollection(
-        key,
-        collection.map(
-          (member: { id: "string" }) => (member.id === body.id ? body : member)
-        )
-      );
+      getCollectionMember(key, body.id, (member, index, collection) => {
+        collection[index] = body;
+        setCollection(key, collection);
+      });
       window.setTimeout(
         () =>
           resolve({

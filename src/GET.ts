@@ -1,19 +1,18 @@
 import { getCollectionMember } from "./utils";
 import { IMember } from "./interfaces/member";
-import { IQuery } from "./interfaces/query";
 
 export const GET = <T extends IMember>(
   key: string,
-  where: IQuery,
+  id: IMember["id"],
   debug = false,
   timeout = 0
 ): Promise<{ data: T }> =>
   new Promise((resolve, reject) => {
     if (debug) {
-      console.info("GET", { key, where });
+      console.info("GET", { key, id });
     }
     try {
-      const data = getCollectionMember(key, where);
+      const data = getCollectionMember(key, id);
       window.setTimeout(
         () =>
           resolve({

@@ -3,6 +3,6 @@ export const getItem = (key: string) => {
   if (json) {
     return json;
   } else {
-    throw new Error(`"${key}" not found in localStorage`);
+    throw new Error(`Collection "${key}" not found in localStorage.`);
   }
 };

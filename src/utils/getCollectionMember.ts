@@ -1,14 +1,19 @@
 import { getCollection } from "..";
-import { IQuery } from "../interfaces/query";
-import { keyValuesMatch } from ".";
+import { IMember } from "../interfaces/member";
 
-export const getCollectionMember = (key: string, where: IQuery) => {
-  const member = getCollection(key).find(keyValuesMatch(where));
-  if (member) {
-    return member;
+export const getCollectionMember = <T extends IMember>(
+  key: string,
+  id: IMember["id"],
+  callback?: (member: T, index: number, collection: Array<T>) => void
+) => {
+  const collection = getCollection(key);
+  const index = collection.findIndex((member: T) => member.id === id);
+  if (index > -1) {
+    const member = collection[index];
+    return callback ? callback(member, index, collection) : member;
   } else {
     throw new Error(
-      `No member of "${key}" was found matching ${JSON.stringify(where)}`
+      `No member of collection "${key}" was found with id "${id}".`
     );
   }
 };

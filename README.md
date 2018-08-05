@@ -53,7 +53,7 @@ setCollection("books", [
 2.  Fetch some data
 
 ```
-GET("books", { author: "Herman Melville" });
+GETS("books", ({ author }) => author === "Herman Melville");
 ```
 
 3.  Returns a Promise that resolves with:

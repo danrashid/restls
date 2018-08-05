@@ -17,7 +17,7 @@ it("Resolves with all matching members of a collection", async () => {
       { id: "foo", index: 2 }
     ])
   );
-  await expect(GETS("foo", { id: "foo" })).resolves.toEqual({
+  await expect(GETS("foo", ({ id }) => id === "foo")).resolves.toEqual({
     data: [{ id: "foo", index: 1 }, { id: "foo", index: 2 }]
   });
 });
@@ -41,20 +41,20 @@ it("Emits no error if no matching members were found", async () => {
       { id: "foo", index: 2 }
     ])
   );
-  await expect(GETS("foo", { id: "baz" })).resolves.toEqual({
+  await expect(GETS("foo", ({ id }) => id === "baz")).resolves.toEqual({
     data: []
   });
 });
 
 it("Rejects with an error if the specified collection was not found", async () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
-  await expect(GETS("bar", { id: "foo" })).rejects.toThrow();
+  await expect(GETS("bar", ({ id }) => id === "foo")).rejects.toThrow();
 });
 
 it("Outputs debugging information if specified", async () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
   const key = "foo";
-  const where = { id: "foo" };
+  const where = ({ id }) => id === "foo";
   GETS(key, where, true);
   expect(console.info).toHaveBeenCalledWith("GETS", {
     key,
@@ -72,7 +72,7 @@ it("Supports faking latency with a timeout", async () => {
       { id: "foo", index: 2 }
     ])
   );
-  const promise = GETS("foo", { id: "foo" }, undefined, 10000);
+  const promise = GETS("foo", ({ id }) => id === "foo", undefined, 10000);
   jest.advanceTimersByTime(10000);
   await expect(promise).resolves.toHaveProperty("data");
   jest.useRealTimers();

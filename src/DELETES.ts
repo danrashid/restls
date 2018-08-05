@@ -1,10 +1,9 @@
 import { getCollection, setCollection } from ".";
-import { IQuery } from "./interfaces/query";
-import { keyValuesMatch } from "./utils";
+import { IMember } from "./interfaces/member";
 
-export const DELETES = (
+export const DELETES = <T extends IMember>(
   key: string,
-  where: IQuery,
+  where: (member: T) => boolean,
   debug = false,
   timeout = 0
 ): Promise<{ data: {} }> =>
@@ -14,7 +13,7 @@ export const DELETES = (
     }
     try {
       const collection = getCollection(key);
-      setCollection(key, collection.filter(keyValuesMatch(where, true)));
+      setCollection(key, collection.filter((member: T) => !where(member)));
       window.setTimeout(
         () =>
           resolve({
