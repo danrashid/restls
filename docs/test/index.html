@@ -18,8 +18,8 @@
 
 <body>
     <h2>restls/test</h2>
-    <p>Generated with
-        <code>jest --json</code>
+    <p>Generated from
+        <code>jest --json</code> output
     </p>
     <div id="root"></div>
     <p>EOF</p>
@@ -27,11 +27,13 @@
         function reqListener() {
             var json = JSON.parse(this.responseText);
             var html = json.testResults.map(function (tr) {
-                var name = tr.name.match(/[\w\.]+$/)[0];
-                return '<h4><a href="https://github.com/danrashid/restls/tree/master/src/' + name + '">' + name + "</a></h4>\n<ul>\n" + tr.assertionResults.map(function (ar) {
-                    return "<li>" + ar.fullName + "</li>\n";
-                }).join("\n") + "</ul>";
-            }).join("\n");
+                var name = tr.name.match(/src.*$/)[0].replace(/\\/g, '/');
+                return '<h4><a href="https://github.com/danrashid/restls/tree/master/' + encodeURIComponent(name) + '">' + name + "</a></h4>"
+                    + "<ul>" + tr.assertionResults.map(function (ar) {
+                        return "<li>" + ar.fullName + "</li>";
+                    }).join("")
+                    + "</ul>";
+            }).join("");
             document.getElementById("root").innerHTML = html;
         }
 
