@@ -12,15 +12,15 @@ it("Updates a member of a collection by id", async () => {
   window.localStorage.setItem(
     "foo",
     JSON.stringify([
-      { id: "foo", name: "foo", index: 0 },
-      { id: "bar", name: "bar", index: 1 }
+      { id: "foo", name: "Foo", value: 0 },
+      { id: "bar", name: "Bar", value: 1 }
     ])
   );
-  await PUT("foo", { id: "foo", name: "baz", index: 0 });
+  await PUT("foo", { id: "foo", name: "Baz", value: 0 });
   expect(window.localStorage.getItem("foo")).toBe(
     JSON.stringify([
-      { id: "foo", name: "baz", index: 0 },
-      { id: "bar", name: "bar", index: 1 }
+      { id: "foo", name: "Baz", value: 0 },
+      { id: "bar", name: "Bar", value: 1 }
     ])
   );
 });
@@ -28,36 +28,36 @@ it("Updates a member of a collection by id", async () => {
 it("Rejects with an error if no matching member id was found", async () => {
   window.localStorage.setItem(
     "foo",
-    JSON.stringify([{ id: "foo", name: "foo", index: 0 }])
+    JSON.stringify([{ id: "foo", name: "Foo", value: 0 }])
   );
   await expect(
-    PUT("foo", { id: "bar", name: "bar", index: 0 })
+    PUT("foo", { id: "bar", name: "Bar", value: 0 })
   ).rejects.toThrow();
 });
 
 it("Resolves with the updated member", async () => {
   window.localStorage.setItem(
     "foo",
-    JSON.stringify([{ id: "foo", name: "foo", index: 0 }])
+    JSON.stringify([{ id: "foo", name: "Foo", value: 0 }])
   );
   await expect(
-    PUT("foo", { id: "foo", name: "bar", index: 0 })
+    PUT("foo", { id: "foo", name: "Bar", value: 0 })
   ).resolves.toEqual({
-    data: { id: "foo", name: "bar", index: 0 }
+    data: { id: "foo", name: "Bar", value: 0 }
   });
 });
 
 it("Rejects with an error if the specified collection was not found", async () => {
-  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
+  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", value: 0 }]));
   await expect(
-    PUT("bar", { id: "foo", name: "bar", index: 0 })
+    PUT("bar", { id: "foo", name: "Bar", value: 0 })
   ).rejects.toThrow();
 });
 
 it("Outputs debugging information if specified", () => {
-  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
+  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", value: 0 }]));
   const key = "foo";
-  const body = { id: "foo", name: "foo", index: 0 };
+  const body = { id: "foo", name: "Foo", value: 0 };
   PUT(key, body, true);
   expect(console.info).toHaveBeenCalledWith("PUT", {
     key,
@@ -69,14 +69,11 @@ it("Supports faking latency with a timeout", async () => {
   jest.useFakeTimers();
   window.localStorage.setItem(
     "foo",
-    JSON.stringify([
-      { id: "foo", name: "foo", index: 0 },
-      { id: "bar", name: "bar", index: 1 }
-    ])
+    JSON.stringify([{ id: "foo", name: "Foo", value: 0 }])
   );
   const promise = PUT(
     "foo",
-    { id: "foo", name: "baz", index: 0 },
+    { id: "foo", name: "Baz", value: 0 },
     undefined,
     10000
   );

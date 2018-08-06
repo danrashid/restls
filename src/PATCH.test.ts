@@ -12,15 +12,15 @@ it("Patches a member of a collection by id", async () => {
   window.localStorage.setItem(
     "foo",
     JSON.stringify([
-      { id: "foo", name: "foo", index: 0 },
-      { id: "bar", name: "bar", index: 1 }
+      { id: "foo", name: "Foo", value: 0 },
+      { id: "bar", name: "Bar", value: 1 }
     ])
   );
-  await PATCH("foo", { id: "foo", name: "baz" });
+  await PATCH("foo", { id: "foo", name: "Baz" });
   expect(window.localStorage.getItem("foo")).toBe(
     JSON.stringify([
-      { id: "foo", name: "baz", index: 0 },
-      { id: "bar", name: "bar", index: 1 }
+      { id: "foo", name: "Baz", value: 0 },
+      { id: "bar", name: "Bar", value: 1 }
     ])
   );
 });
@@ -28,30 +28,33 @@ it("Patches a member of a collection by id", async () => {
 it("Rejects with an error if no matching member id was found", async () => {
   window.localStorage.setItem(
     "foo",
-    JSON.stringify([{ id: "foo", name: "foo", index: 0 }])
+    JSON.stringify([{ id: "foo", name: "Foo", value: 0 }])
   );
-  await expect(PATCH("foo", { id: "bar", name: "bar" })).rejects.toThrow();
+  await expect(PATCH("foo", { id: "bar", name: "Bar" })).rejects.toThrow();
 });
 
 it("Resolves with an empty object", async () => {
   window.localStorage.setItem(
     "foo",
-    JSON.stringify([{ id: "foo", name: "foo", index: 0 }])
+    JSON.stringify([{ id: "foo", name: "Foo", value: 0 }])
   );
-  await expect(PATCH("foo", { id: "foo", name: "bar" })).resolves.toEqual({
+  await expect(PATCH("foo", { id: "foo", name: "Bar" })).resolves.toEqual({
     data: {}
   });
 });
 
 it("Rejects with an error if the specified collection was not found", async () => {
-  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
-  await expect(PATCH("bar", { id: "foo", name: "bar" })).rejects.toThrow();
+  window.localStorage.setItem(
+    "foo",
+    JSON.stringify([{ id: "foo", name: "Foo", value: 0 }])
+  );
+  await expect(PATCH("bar", { id: "foo", name: "Bar" })).rejects.toThrow();
 });
 
 it("Outputs debugging information if specified", () => {
-  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", index: 0 }]));
+  window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", value: 0 }]));
   const key = "foo";
-  const body = { id: "foo", name: "foo", index: 0 };
+  const body = { id: "foo", name: "Foo", value: 0 };
   PATCH(key, body, true);
   expect(console.info).toHaveBeenCalledWith("PATCH", {
     key,
@@ -63,12 +66,9 @@ it("Supports faking latency with a timeout", async () => {
   jest.useFakeTimers();
   window.localStorage.setItem(
     "foo",
-    JSON.stringify([
-      { id: "foo", name: "foo", index: 0 },
-      { id: "bar", name: "bar", index: 1 }
-    ])
+    JSON.stringify([{ id: "foo", name: "Foo", value: 0 }])
   );
-  const promise = PATCH("foo", { id: "foo", name: "baz" }, undefined, 10000);
+  const promise = PATCH("foo", { id: "foo", name: "Baz" }, undefined, 10000);
   jest.advanceTimersByTime(10000);
   await expect(promise).resolves.toHaveProperty("data");
   jest.useRealTimers();

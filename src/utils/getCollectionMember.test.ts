@@ -10,17 +10,17 @@ it("Returns only the first matching member of a collection", () => {
     JSON.stringify([
       {
         id: "foo",
-        index: 0
+        value: 0
       },
       {
         id: "foo",
-        index: 1
+        value: 1
       }
     ])
   );
   expect(getCollectionMember("foo", "foo")).toEqual({
     id: "foo",
-    index: 0
+    value: 0
   });
 });
 
@@ -30,7 +30,7 @@ it("Throws if no matching member was found", done => {
     JSON.stringify([
       {
         id: "foo",
-        index: 0
+        value: 0
       }
     ])
   );
