@@ -1,0 +1,40 @@
+body,
+a {
+  color: #e5e5e5;
+}
+
+a:hover {
+  color: cyan;
+}
+
+a + a {
+  margin-left: 3em;
+}
+
+/* https://css-tricks.com/snippets/css/font-stacks/ */
+
+body {
+  background: #1a1a1a;
+  font: 1em/1.5em "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans",
+    "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+  margin: 0;
+  padding: 1em 2em;
+}
+
+h2,
+h4 {
+  font-weight: normal;
+}
+
+ul {
+  margin-bottom: 3em;
+}
+
+code {
+  background: black;
+  padding: 0 0.375em;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+    monospace;
+}

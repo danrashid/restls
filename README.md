@@ -10,27 +10,31 @@
 
 `yarn add restls`
 
-#### Specs
+#### Rundown
+
+Data is seeded by giving `setCollection` a key for localStorage (i.e. entity name), and `Array<IMember>`.
 
 The following fake HTTP methods are supported:
 
-- `GET`
-- `GETS` (a plural GET)
-- `POST` (generates `{id: [UUIDv4], ...}` by default (our only runtime dependency :)))
-- `PUT`
-- `PATCH`
-- `DELETE`
-- `DELETES` (a plural DELETE)
+- `GET` expects an id
+- `GETS` is a plural GET
+- `POST` generates `{id: [UUIDv4], ...body}` by default
+- `PUT` expects an `IMember`
+- `PATCH` expects an id
+- `DELETE` expects an id
+- `DELETES` is a plural DELETE, useful for cascading deletes of child entities
 
-All return a Promise that resolves with `{ data: IMember | Array<IMember> | {} }` or rejects with an error.
+All return a Promise that resolves with `{ data: IMember | Array<IMember> | {} }`, or rejects with an error.
 
-Every collection member is expected to have a unique `id` property.
+An id can be a string or a number and must be unique to that collection.
 
-For more information, see the [generated docs](https://www.danrashid.com/restls/) and [test specs](https://www.danrashid.com/restls/test/).
+For more information, see the [test specs](https://www.danrashid.com/restls/test/) and [generated docs](https://www.danrashid.com/restls/typedoc/).
+
+Better yet, try it out with a TypeScript-aware editor like [Visual Studio Code](https://code.visualstudio.com/).
 
 #### Usage example
 
-1.  Seed some data
+1\. Seed some data
 
 ```
 setCollection("books", [
@@ -52,13 +56,13 @@ setCollection("books", [
 ]);
 ```
 
-2.  Fetch some data
+2\. Fetch some data
 
 ```
 GETS("books", ({ author }) => author === "Herman Melville");
 ```
 
-3.  Returns a Promise that resolves with:
+3\. Receive a Promise that resolves with:
 
 ```
 {
@@ -98,4 +102,4 @@ A couple reasons:
 
 `yarn test --coverage`
 
-This generates a truly lovely HTML report in your ./coverage folder.
+This generates a truly lovely HTML report in your ./coverage/lcov-report folder.

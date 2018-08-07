@@ -3,26 +3,19 @@
 
 <head>
     <title>restls/test</title>
-    <style>
-        body,
-        a {
-            color: #e5e5e5;
-        }
-
-        body {
-            background: #1a1a1a;
-            font: 1em/1.5em sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
 </head>
 
 <body>
-    <h2>restls/test</h2>
+    <h2>
+        <a href="../">restls</a>/test</h2>
     <p>Generated from
         <code>jest --json</code> output
     </p>
     <div id="root"></div>
-    <p>EOF</p>
+    <p>
+        <code>EOF</code>
+    </p>
     <script>
         function reqListener() {
             var json = JSON.parse(this.responseText);
