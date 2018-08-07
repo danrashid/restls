@@ -12,21 +12,19 @@ export const DELETE = (
     if (debug) {
       console.info("DELETE", { key, id });
     }
-    try {
-      getCollectionMember(key, id, (member, index, collection) =>
-        setCollection(key, [
-          ...collection.slice(0, index),
-          ...collection.slice(index + 1)
-        ])
-      );
-      window.setTimeout(
-        () =>
-          resolve({
-            data: {}
-          }),
-        timeout
-      );
-    } catch (e) {
-      reject(e);
-    }
+    window.setTimeout(() => {
+      try {
+        getCollectionMember(key, id, (member, index, collection) =>
+          setCollection(key, [
+            ...collection.slice(0, index),
+            ...collection.slice(index + 1)
+          ])
+        );
+        resolve({
+          data: {}
+        });
+      } catch (e) {
+        reject(e);
+      }
+    }, timeout);
   });

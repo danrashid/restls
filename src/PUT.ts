@@ -12,19 +12,17 @@ export const PUT = <T extends IMember>(
     if (debug) {
       console.info("PUT", { key, body });
     }
-    try {
-      getCollectionMember(key, body.id, (member, index, collection) => {
-        collection[index] = body;
-        setCollection(key, collection);
-      });
-      window.setTimeout(
-        () =>
-          resolve({
-            data: body
-          }),
-        timeout
-      );
-    } catch (e) {
-      reject(e);
-    }
+    window.setTimeout(() => {
+      try {
+        getCollectionMember(key, body.id, (member, index, collection) => {
+          collection[index] = body;
+          setCollection(key, collection);
+        });
+        resolve({
+          data: body
+        });
+      } catch (e) {
+        reject(e);
+      }
+    }, timeout);
   });

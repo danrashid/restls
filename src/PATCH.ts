@@ -12,13 +12,15 @@ export const PATCH = (
     if (debug) {
       console.info("PATCH", { key, body });
     }
-    try {
-      getCollectionMember(key, body.id, (member, index, collection) => {
-        collection[index] = { ...member, ...body };
-        setCollection(key, collection);
-      });
-      window.setTimeout(() => resolve({ data: {} }), timeout);
-    } catch (e) {
-      reject(e);
-    }
+    window.setTimeout(() => {
+      try {
+        getCollectionMember(key, body.id, (member, index, collection) => {
+          collection[index] = { ...member, ...body };
+          setCollection(key, collection);
+        });
+        resolve({ data: {} });
+      } catch (e) {
+        reject(e);
+      }
+    }, timeout);
   });

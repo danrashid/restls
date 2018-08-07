@@ -11,17 +11,15 @@ export const DELETES = <T extends IMember>(
     if (debug) {
       console.info("DELETES", { key, where });
     }
-    try {
-      const collection = getCollection(key);
-      setCollection(key, collection.filter((member: T) => !where(member)));
-      window.setTimeout(
-        () =>
-          resolve({
-            data: {}
-          }),
-        timeout
-      );
-    } catch (e) {
-      reject(e);
-    }
+    window.setTimeout(() => {
+      try {
+        const collection = getCollection(key);
+        setCollection(key, collection.filter((member: T) => !where(member)));
+        resolve({
+          data: {}
+        });
+      } catch (e) {
+        reject(e);
+      }
+    }, timeout);
   });

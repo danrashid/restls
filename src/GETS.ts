@@ -11,15 +11,15 @@ export const GETS = <T extends IMember>(
     if (debug) {
       console.info("GETS", { key, where });
     }
-    try {
-      const collection = getCollection(key);
-      window.setTimeout(() => {
+    window.setTimeout(() => {
+      try {
+        const collection = getCollection(key);
         const data = where ? collection.filter(where) : collection;
         resolve({
           data
         });
-      }, timeout);
-    } catch (e) {
-      reject(e);
-    }
+      } catch (e) {
+        reject(e);
+      }
+    }, timeout);
   });

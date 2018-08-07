@@ -73,3 +73,15 @@ it("Supports faking latency with a timeout", async () => {
   await expect(promise).resolves.toHaveProperty("data");
   jest.useRealTimers();
 });
+
+it("Applies fake latency even if rejecting", async () => {
+  jest.useFakeTimers();
+  window.localStorage.setItem(
+    "bar",
+    JSON.stringify([{ id: "foo", name: "Foo", value: 0 }])
+  );
+  const promise = PATCH("foo", { id: "foo", name: "Baz" }, undefined, 10000);
+  jest.advanceTimersByTime(10000);
+  await expect(promise).rejects.toThrow();
+  jest.useRealTimers();
+});

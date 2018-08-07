@@ -1,6 +1,6 @@
 {
   "name": "restls",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A REST-like interface for localStorage",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

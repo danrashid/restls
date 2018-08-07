@@ -13,24 +13,22 @@ export const POST = <T extends IMember>(
     if (debug) {
       console.info("POST", { key, body });
     }
-    try {
-      const id = idGenerator();
-      const collection = getCollection(key);
-      if (collection.some((member: IMember) => member.id === id)) {
-        throw new Error(
-          `Collection "${key}" already has a member with id "${id}".`
-        );
+    window.setTimeout(() => {
+      try {
+        const id = idGenerator();
+        const collection = getCollection(key);
+        if (collection.some((member: IMember) => member.id === id)) {
+          throw new Error(
+            `Collection "${key}" already has a member with id "${id}".`
+          );
+        }
+        const data = { ...body, id } as any;
+        setCollection(key, [...collection, data]);
+        resolve({
+          data
+        });
+      } catch (e) {
+        reject(e);
       }
-      const data = { ...body, id } as any;
-      setCollection(key, [...collection, data]);
-      window.setTimeout(
-        () =>
-          resolve({
-            data
-          }),
-        timeout
-      );
-    } catch (e) {
-      reject(e);
-    }
+    }, timeout);
   });
