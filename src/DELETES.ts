@@ -9,7 +9,7 @@ export const DELETES = <T extends IMember>(
 ): Promise<{ data: {} }> =>
   new Promise((resolve, reject) => {
     if (debug) {
-      console.info("DELETES", { key, where });
+      console.info("DELETES", { key, where: where.toString() });
     }
     window.setTimeout(() => {
       try {

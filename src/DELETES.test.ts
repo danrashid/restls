@@ -53,7 +53,7 @@ it("Outputs debugging information if specified", async () => {
   DELETES(key, where, true);
   expect(console.info).toHaveBeenCalledWith("DELETES", {
     key,
-    where
+    where: where.toString()
   });
 });
 

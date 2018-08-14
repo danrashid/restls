@@ -9,7 +9,7 @@ export const GETS = <T extends IMember>(
 ): Promise<{ data: Array<T> }> =>
   new Promise((resolve, reject) => {
     if (debug) {
-      console.info("GETS", { key, where });
+      console.info("GETS", { key, where: where.toString() });
     }
     window.setTimeout(() => {
       try {

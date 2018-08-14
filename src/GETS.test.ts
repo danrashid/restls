@@ -58,7 +58,7 @@ it("Outputs debugging information if specified", async () => {
   GETS(key, where, true);
   expect(console.info).toHaveBeenCalledWith("GETS", {
     key,
-    where
+    where: where.toString()
   });
 });
 
