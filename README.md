@@ -6,6 +6,10 @@
 
 `restls` is designed as a temporary replacement for actual API calls through XHR libraries like [axios](https://github.com/axios/axios). It’s most useful while developing single-page applications in isolation.
 
+#### Complete example with live demo
+
+[https://github.com/danrashid/restls-demo](https://github.com/danrashid/restls-demo)
+
 #### Installation
 
 `yarn add restls`
