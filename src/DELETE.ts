@@ -1,25 +1,41 @@
+import { getCollection, setCollection } from ".";
 import { getCollectionMember } from "./utils";
 import { IMember } from "./interfaces/member";
-import { setCollection } from ".";
+import { Where } from "./types/where";
 
-export const DELETE = (
-  key: string,
-  id: IMember["id"],
+export const DELETE = <T extends IMember>(
+  collectionName: string,
+  where: Where | IMember["id"],
   debug = false,
   timeout = 0
 ): Promise<{ data: {} }> =>
   new Promise((resolve, reject) => {
     if (debug) {
-      console.info("DELETE", { key, id });
+      console.info("DELETE", {
+        collectionName,
+        where: where.toString(),
+        timeout
+      });
     }
     window.setTimeout(() => {
       try {
-        getCollectionMember(key, id, (member, index, collection) =>
-          setCollection(key, [
-            ...collection.slice(0, index),
-            ...collection.slice(index + 1)
-          ])
-        );
+        if (typeof where === "function") {
+          const collection = getCollection(collectionName);
+          setCollection(
+            collectionName,
+            collection.filter((member: T) => !where(member))
+          );
+        } else {
+          getCollectionMember(
+            collectionName,
+            where,
+            (member, index, collection) =>
+              setCollection(collectionName, [
+                ...collection.slice(0, index),
+                ...collection.slice(index + 1)
+              ])
+          );
+        }
         resolve({
           data: {}
         });

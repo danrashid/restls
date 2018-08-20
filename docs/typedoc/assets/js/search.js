@@ -6,33 +6,20 @@ typedoc.search.data = {
     "64": "Function",
     "256": "Interface",
     "1024": "Property",
-    "2048": "Method"
+    "2048": "Method",
+    "65536": "Type literal",
+    "4194304": "Type alias"
   },
   rows: [
     {
       id: 0,
-      kind: 1,
-      name: '"getCollection"',
-      url: "modules/_getcollection_.html",
-      classes: "tsd-kind-external-module"
-    },
-    {
-      id: 1,
-      kind: 64,
-      name: "getCollection",
-      url: "modules/_getcollection_.html#getcollection",
-      classes: "tsd-kind-function tsd-parent-kind-external-module",
-      parent: '"getCollection"'
-    },
-    {
-      id: 2,
       kind: 1,
       name: '"interfaces/member"',
       url: "modules/_interfaces_member_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 3,
+      id: 1,
       kind: 256,
       name: "IMember",
       url: "interfaces/_interfaces_member_.imember.html",
@@ -40,7 +27,7 @@ typedoc.search.data = {
       parent: '"interfaces/member"'
     },
     {
-      id: 4,
+      id: 2,
       kind: 1024,
       name: "id",
       url: "interfaces/_interfaces_member_.imember.html#id",
@@ -48,7 +35,7 @@ typedoc.search.data = {
       parent: '"interfaces/member".IMember'
     },
     {
-      id: 5,
+      id: 3,
       kind: 1024,
       name: "constructor",
       url: "interfaces/_interfaces_member_.imember.html#constructor",
@@ -56,7 +43,7 @@ typedoc.search.data = {
       parent: '"interfaces/member".IMember'
     },
     {
-      id: 6,
+      id: 4,
       kind: 2048,
       name: "toString",
       url: "interfaces/_interfaces_member_.imember.html#tostring",
@@ -64,7 +51,7 @@ typedoc.search.data = {
       parent: '"interfaces/member".IMember'
     },
     {
-      id: 7,
+      id: 5,
       kind: 2048,
       name: "toLocaleString",
       url: "interfaces/_interfaces_member_.imember.html#tolocalestring",
@@ -72,7 +59,7 @@ typedoc.search.data = {
       parent: '"interfaces/member".IMember'
     },
     {
-      id: 8,
+      id: 6,
       kind: 2048,
       name: "valueOf",
       url: "interfaces/_interfaces_member_.imember.html#valueof",
@@ -80,7 +67,7 @@ typedoc.search.data = {
       parent: '"interfaces/member".IMember'
     },
     {
-      id: 9,
+      id: 7,
       kind: 2048,
       name: "hasOwnProperty",
       url: "interfaces/_interfaces_member_.imember.html#hasownproperty",
@@ -89,7 +76,7 @@ typedoc.search.data = {
       parent: '"interfaces/member".IMember'
     },
     {
-      id: 10,
+      id: 8,
       kind: 2048,
       name: "isPrototypeOf",
       url: "interfaces/_interfaces_member_.imember.html#isprototypeof",
@@ -97,7 +84,7 @@ typedoc.search.data = {
       parent: '"interfaces/member".IMember'
     },
     {
-      id: 11,
+      id: 9,
       kind: 2048,
       name: "propertyIsEnumerable",
       url: "interfaces/_interfaces_member_.imember.html#propertyisenumerable",
@@ -106,7 +93,7 @@ typedoc.search.data = {
       parent: '"interfaces/member".IMember'
     },
     {
-      id: 12,
+      id: 10,
       kind: 1024,
       name: "Object",
       url: "interfaces/_interfaces_member_.imember.html#object",
@@ -114,14 +101,53 @@ typedoc.search.data = {
       parent: '"interfaces/member".IMember'
     },
     {
+      id: 11,
+      kind: 1,
+      name: '"types/where"',
+      url: "modules/_types_where_.html",
+      classes: "tsd-kind-external-module"
+    },
+    {
+      id: 12,
+      kind: 4194304,
+      name: "Where",
+      url: "modules/_types_where_.html#where",
+      classes: "tsd-kind-type-alias tsd-parent-kind-external-module",
+      parent: '"types/where"'
+    },
+    {
       id: 13,
+      kind: 65536,
+      name: "__type",
+      url: "modules/_types_where_.html#where.__type",
+      classes:
+        "tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter tsd-is-not-exported",
+      parent: '"types/where".Where'
+    },
+    {
+      id: 14,
+      kind: 1,
+      name: '"getCollection"',
+      url: "modules/_getcollection_.html",
+      classes: "tsd-kind-external-module"
+    },
+    {
+      id: 15,
+      kind: 64,
+      name: "getCollection",
+      url: "modules/_getcollection_.html#getcollection",
+      classes: "tsd-kind-function tsd-parent-kind-external-module",
+      parent: '"getCollection"'
+    },
+    {
+      id: 16,
       kind: 1,
       name: '"setCollection"',
       url: "modules/_setcollection_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 14,
+      id: 17,
       kind: 64,
       name: "setCollection",
       url: "modules/_setcollection_.html#setcollection",
@@ -129,30 +155,14 @@ typedoc.search.data = {
       parent: '"setCollection"'
     },
     {
-      id: 15,
-      kind: 1,
-      name: '"DELETES"',
-      url: "modules/_deletes_.html",
-      classes: "tsd-kind-external-module"
-    },
-    {
-      id: 16,
-      kind: 64,
-      name: "DELETES",
-      url: "modules/_deletes_.html#deletes",
-      classes:
-        "tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter",
-      parent: '"DELETES"'
-    },
-    {
-      id: 17,
+      id: 18,
       kind: 1,
       name: '"GET"',
       url: "modules/_get_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 18,
+      id: 19,
       kind: 64,
       name: "GET",
       url: "modules/_get_.html#get",
@@ -161,30 +171,14 @@ typedoc.search.data = {
       parent: '"GET"'
     },
     {
-      id: 19,
-      kind: 1,
-      name: '"GETS"',
-      url: "modules/_gets_.html",
-      classes: "tsd-kind-external-module"
-    },
-    {
       id: 20,
-      kind: 64,
-      name: "GETS",
-      url: "modules/_gets_.html#gets",
-      classes:
-        "tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter",
-      parent: '"GETS"'
-    },
-    {
-      id: 21,
       kind: 1,
       name: '"POST"',
       url: "modules/_post_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 22,
+      id: 21,
       kind: 64,
       name: "POST",
       url: "modules/_post_.html#post",
@@ -193,14 +187,14 @@ typedoc.search.data = {
       parent: '"POST"'
     },
     {
-      id: 23,
+      id: 22,
       kind: 1,
       name: '"PUT"',
       url: "modules/_put_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 24,
+      id: 23,
       kind: 64,
       name: "PUT",
       url: "modules/_put_.html#put",
@@ -209,14 +203,14 @@ typedoc.search.data = {
       parent: '"PUT"'
     },
     {
-      id: 25,
+      id: 24,
       kind: 1,
       name: '"PATCH"',
       url: "modules/_patch_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 26,
+      id: 25,
       kind: 64,
       name: "PATCH",
       url: "modules/_patch_.html#patch",
@@ -224,18 +218,19 @@ typedoc.search.data = {
       parent: '"PATCH"'
     },
     {
-      id: 27,
+      id: 26,
       kind: 1,
       name: '"DELETE"',
       url: "modules/_delete_.html",
       classes: "tsd-kind-external-module"
     },
     {
-      id: 28,
+      id: 27,
       kind: 64,
       name: "DELETE",
       url: "modules/_delete_.html#delete",
-      classes: "tsd-kind-function tsd-parent-kind-external-module",
+      classes:
+        "tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter",
       parent: '"DELETE"'
     }
   ]

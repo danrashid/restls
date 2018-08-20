@@ -1,4 +1,5 @@
 import { GET } from "./GET";
+import { IMember } from "./interfaces/member";
 
 beforeEach(() => {
   console.info = jest.fn();
@@ -6,6 +7,37 @@ beforeEach(() => {
 
 afterEach(() => {
   window.localStorage.clear();
+});
+
+it("Resolves with all matching members of a collection if no filter method was specified", async () => {
+  window.localStorage.setItem(
+    "foo",
+    JSON.stringify([
+      { id: "foo", value: 0 },
+      { id: "bar", value: 0 },
+      { id: "baz", value: 2 }
+    ])
+  );
+  await expect(
+    GET<{ id: string; value: number }>(
+      "foo",
+      ({ value }: IMember) => value === 0
+    )
+  ).resolves.toEqual({
+    data: [{ id: "foo", value: 0 }, { id: "bar", value: 0 }]
+  });
+});
+
+it("Resolves with an entire collection if no match criteria were specified", async () => {
+  const collection = [
+    { id: "foo", value: 0 },
+    { id: "bar", value: 1 },
+    { id: "baz", value: 2 }
+  ];
+  window.localStorage.setItem("foo", JSON.stringify(collection));
+  await expect(GET<{ id: string; value: number }>("foo")).resolves.toEqual({
+    data: collection
+  });
 });
 
 it("Resolves with the first matching member of a collection", async () => {
@@ -22,7 +54,7 @@ it("Resolves with the first matching member of a collection", async () => {
   });
 });
 
-it("Rejects with an error if no matching member was found", async () => {
+it("Rejects with an error if no matching member was found for a singular request", async () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", value: 0 }]));
   await expect(GET("foo", "bar")).rejects.toThrow();
 });
@@ -34,12 +66,13 @@ it("Rejects with an error if the specified collection was not found", async () =
 
 it("Outputs debugging information if specified", () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", value: 0 }]));
-  const key = "foo";
-  const id = "foo";
-  GET(key, id, true);
+  const collectionName = "foo";
+  const where = "foo";
+  GET(collectionName, where, true, 500);
   expect(console.info).toHaveBeenCalledWith("GET", {
-    key,
-    id
+    collectionName,
+    where,
+    timeout: 500
   });
 });
 

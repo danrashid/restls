@@ -61,12 +61,13 @@ it("Rejects with an error if the specified collection was not found", async () =
 
 it("Outputs debugging information if specified", () => {
   window.localStorage.setItem("foo", JSON.stringify([{ id: "foo", value: 0 }]));
-  const key = "foo";
+  const collectionName = "foo";
   const body = { value: 0 };
-  POST(key, body, true);
+  POST(collectionName, body, true, 500);
   expect(console.info).toHaveBeenCalledWith("POST", {
-    key,
-    body
+    collectionName,
+    body,
+    timeout: 500
   });
 });
 

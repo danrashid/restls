@@ -1,5 +1,5 @@
 module.exports = {
-  out: "./docs",
+  out: "./docs/typedoc",
   includes: "./src",
   exclude: ["**/*.test.ts", "**/index.ts", "**/utils/**/*"],
   excludeExternals: true,

@@ -16,21 +16,19 @@
 
 #### Rundown
 
-Data is seeded by giving `setCollection` a key for localStorage (i.e. entity name), and `Array<IMember>`.
+Data is seeded by giving `setCollection` a key for localStorage (i.e. entity name), and `Array<T>`.
 
 The following fake HTTP methods are supported:
 
-- `GET` expects an id
-- `GETS` is a plural GET
-- `POST` generates `{id: [UUIDv4], ...body}` by default
-- `PUT` expects an `IMember`
-- `PATCH` expects an id
-- `DELETE` expects an id
-- `DELETES` is a plural DELETE, useful for cascading deletes of child entities
+- `GET` will accept an id (singular response), a filter function (plural response), or nothing at all (plural response with the whole collection)
+- `POST` generates `{id: [UUIDv4], ...body}` by default, but will accept an id generator that returns a string or number
+- `PUT` expects an id and body
+- `PATCH` expects an id and a partial body
+- `DELETE` will accept an id or a filter function (plural operation, useful for cascading deletes of child entities)
 
-All return a Promise that resolves with `{ data: IMember | Array<IMember> | {} }`, or rejects with an error.
+All return a Promise that resolves with `{ data: T | Array<T> | {} }`, or rejects with an error.
 
-An id can be a string or a number and must be unique to that collection.
+Where an id is expected, it can be a string or a number and must be unique to that collection.
 
 For more information, see the [test specs](https://www.danrashid.com/restls/test/) and [generated docs](https://www.danrashid.com/restls/typedoc/).
 

@@ -1,6 +1,6 @@
-import { getItem } from "./utils";
+import { getLocalStorageItem } from "./utils";
 
-export const getCollection = (key: string) => {
-  const item = getItem(key);
+export const getCollection = (collectionName: string) => {
+  const item = getLocalStorageItem(collectionName);
   return JSON.parse(item);
 };

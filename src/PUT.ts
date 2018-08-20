@@ -3,21 +3,25 @@ import { IMember } from "./interfaces/member";
 import { setCollection } from ".";
 
 export const PUT = <T extends IMember>(
-  key: string,
+  collectionName: string,
   body: T,
   debug = false,
   timeout = 0
 ): Promise<{ data: T }> =>
   new Promise((resolve, reject) => {
     if (debug) {
-      console.info("PUT", { key, body });
+      console.info("PUT", { collectionName, body, timeout });
     }
     window.setTimeout(() => {
       try {
-        getCollectionMember(key, body.id, (member, index, collection) => {
-          collection[index] = body;
-          setCollection(key, collection);
-        });
+        getCollectionMember(
+          collectionName,
+          body.id,
+          (member, index, collection) => {
+            collection[index] = body;
+            setCollection(collectionName, collection);
+          }
+        );
         resolve({
           data: body
         });

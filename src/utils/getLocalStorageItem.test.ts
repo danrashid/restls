@@ -1,4 +1,4 @@
-import { getItem } from "./getItem";
+import { getLocalStorageItem } from "./getLocalStorageItem";
 
 afterEach(() => {
   window.localStorage.clear();
@@ -10,7 +10,7 @@ it("Gets an item out of localStorage by key", () => {
     index: 0
   });
   window.localStorage.setItem("foo", foo);
-  expect(getItem("foo")).toBe(foo);
+  expect(getLocalStorageItem("foo")).toBe(foo);
 });
 
 it("Throws if no item in localStorage has the specified key", done => {
@@ -20,7 +20,7 @@ it("Throws if no item in localStorage has the specified key", done => {
   });
   window.localStorage.setItem("foo", foo);
   try {
-    getItem("bar");
+    getLocalStorageItem("bar");
   } catch (e) {
     done();
   }

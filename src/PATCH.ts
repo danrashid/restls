@@ -3,21 +3,25 @@ import { IMember } from "./interfaces/member";
 import { setCollection } from ".";
 
 export const PATCH = (
-  key: string,
+  collectionName: string,
   body: IMember,
   debug = false,
   timeout = 0
 ): Promise<{ data: {} }> =>
   new Promise((resolve, reject) => {
     if (debug) {
-      console.info("PATCH", { key, body });
+      console.info("PATCH", { collectionName, body, timeout });
     }
     window.setTimeout(() => {
       try {
-        getCollectionMember(key, body.id, (member, index, collection) => {
-          collection[index] = { ...member, ...body };
-          setCollection(key, collection);
-        });
+        getCollectionMember(
+          collectionName,
+          body.id,
+          (member, index, collection) => {
+            collection[index] = { ...member, ...body };
+            setCollection(collectionName, collection);
+          }
+        );
         resolve({ data: {} });
       } catch (e) {
         reject(e);
