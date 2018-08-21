@@ -38,7 +38,7 @@ it("Changes no data and emits no error if a filter method was specified and no m
   expect(window.localStorage.getItem("foo")).toBe(collection);
 });
 
-it("Deletes the first matching member of a collection", async () => {
+it("Deletes the first matching member of a collection for a singular request", async () => {
   window.localStorage.setItem(
     "foo",
     JSON.stringify([

@@ -9,7 +9,7 @@ afterEach(() => {
   window.localStorage.clear();
 });
 
-it("Resolves with all matching members of a collection if no filter method was specified", async () => {
+it("Resolves with all matching members of a collection if a filter method was specified", async () => {
   window.localStorage.setItem(
     "foo",
     JSON.stringify([
@@ -40,7 +40,7 @@ it("Resolves with an entire collection if no match criteria were specified", asy
   });
 });
 
-it("Resolves with the first matching member of a collection", async () => {
+it("Resolves with the first matching member of a collection for a singular request", async () => {
   window.localStorage.setItem(
     "foo",
     JSON.stringify([
