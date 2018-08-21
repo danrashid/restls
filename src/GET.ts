@@ -11,7 +11,11 @@ export const GET = <T extends IMember | IMember[]>(
 ): Promise<{ data: T }> =>
   new Promise((resolve, reject) => {
     if (debug) {
-      console.info("GET", { collectionName, where: where.toString(), timeout });
+      console.info("GET", {
+        collectionName,
+        where: where && where.toString(),
+        timeout
+      });
     }
     window.setTimeout(() => {
       try {
