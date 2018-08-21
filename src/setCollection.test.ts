@@ -18,3 +18,9 @@ it("Throws if a collection contains duplicate ids", done => {
     done();
   }
 });
+
+it("Supports storing collection members without ids", () => {
+  const foo = [{ a: "foo", b: "bar" }, { a: "bar", b: "foo" }];
+  setCollection("foo", foo, false);
+  expect(window.localStorage.getItem("foo")).toBe(JSON.stringify(foo));
+});

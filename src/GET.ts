@@ -3,12 +3,12 @@ import { getCollectionMember } from "./utils";
 import { IMember } from "./interfaces/member";
 import { Where } from "./types/where";
 
-export const GET = <T extends IMember>(
+export const GET = <T extends IMember | IMember[]>(
   collectionName: string,
   where?: Where | IMember["id"],
   debug = false,
   timeout = 0
-): Promise<{ data: Array<T> | T }> =>
+): Promise<{ data: T }> =>
   new Promise((resolve, reject) => {
     if (debug) {
       console.info("GET", { collectionName, where: where.toString(), timeout });

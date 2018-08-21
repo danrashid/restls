@@ -1,6 +1,6 @@
+import { getCollection, setCollection } from ".";
 import { getCollectionMember } from "./utils";
 import { IMember } from "./interfaces/member";
-import { setCollection } from ".";
 
 export const PUT = <T extends IMember>(
   collectionName: string,
@@ -14,14 +14,19 @@ export const PUT = <T extends IMember>(
     }
     window.setTimeout(() => {
       try {
-        getCollectionMember(
-          collectionName,
-          body.id,
-          (member, index, collection) => {
-            collection[index] = body;
-            setCollection(collectionName, collection);
-          }
-        );
+        if (body.id) {
+          getCollectionMember(
+            collectionName,
+            body.id,
+            (member, index, collection) => {
+              collection[index] = body;
+              setCollection(collectionName, collection);
+            }
+          );
+        } else {
+          const collection = getCollection(collectionName);
+          setCollection(collectionName, [...collection, body], false);
+        }
         resolve({
           data: body
         });

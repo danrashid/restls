@@ -121,7 +121,7 @@ typedoc.search.data = {
       name: "__type",
       url: "modules/_types_where_.html#where.__type",
       classes:
-        "tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter tsd-is-not-exported",
+        "tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported",
       parent: '"types/where".Where'
     },
     {

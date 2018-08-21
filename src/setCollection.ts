@@ -2,17 +2,19 @@ import { IMember } from "./interfaces/member";
 
 export const setCollection = (
   collectionName: string,
-  value: Array<IMember>
+  value: Array<IMember>,
+  enforceUniqueIds: boolean = true
 ) => {
   if (
-    value
+    enforceUniqueIds &&
+    !value
       .map(({ id }) => id)
       .every((id, index, ids) => ids.indexOf(id) === index)
   ) {
-    localStorage.setItem(collectionName, JSON.stringify(value));
-  } else {
     throw new Error(
       `Failed to set collection "${collectionName}" because it contains duplicate IDs.`
     );
+  } else {
+    localStorage.setItem(collectionName, JSON.stringify(value));
   }
 };

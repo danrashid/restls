@@ -35,6 +35,21 @@ it("Rejects with an error if no matching member id was found", async () => {
   ).rejects.toThrow();
 });
 
+it("Supports adding a member without an id to a collection", async () => {
+  window.localStorage.setItem(
+    "foo",
+    JSON.stringify([{ name: "Foo", value: 0 }, { name: "Bar", value: 1 }])
+  );
+  await PUT("foo", { name: "Baz", value: 2 });
+  expect(window.localStorage.getItem("foo")).toBe(
+    JSON.stringify([
+      { name: "Foo", value: 0 },
+      { name: "Bar", value: 1 },
+      { name: "Baz", value: 2 }
+    ])
+  );
+});
+
 it("Resolves with the updated member", async () => {
   window.localStorage.setItem(
     "foo",

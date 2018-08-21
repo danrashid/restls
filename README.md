@@ -22,7 +22,7 @@ The following fake HTTP methods are supported:
 
 - `GET` will accept an id (singular response), a filter function (plural response), or nothing at all (plural response with the whole collection)
 - `POST` generates `{id: [UUIDv4], ...body}` by default, but will accept an id generator that returns a string or number
-- `PUT` expects an id and body
+- `PUT` expects a body, and will tolerate not having an id (useful for creating relationships)
 - `PATCH` expects an id and a partial body
 - `DELETE` will accept an id or a filter function (plural operation, useful for cascading deletes of child entities)
 

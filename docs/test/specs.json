@@ -2,12 +2,12 @@
   "numFailedTestSuites": 0,
   "numFailedTests": 0,
   "numPassedTestSuites": 9,
-  "numPassedTests": 49,
+  "numPassedTests": 51,
   "numPendingTestSuites": 0,
   "numPendingTests": 0,
   "numRuntimeErrorTestSuites": 0,
   "numTotalTestSuites": 9,
-  "numTotalTests": 49,
+  "numTotalTests": 51,
   "openHandles": [],
   "snapshot": {
     "added": 0,
@@ -24,7 +24,7 @@
     "unmatched": 0,
     "updated": 0
   },
-  "startTime": 1534853284958,
+  "startTime": 1534886736509,
   "success": true,
   "testResults": [
     {
@@ -32,37 +32,109 @@
         {
           "ancestorTitles": [],
           "failureMessages": [],
-          "fullName":
-            "Returns only the first matching member of a collection by id",
+          "fullName": "Stores a collection by key as JSON",
           "location": null,
           "status": "passed",
-          "title":
-            "Returns only the first matching member of a collection by id"
+          "title": "Stores a collection by key as JSON"
         },
         {
           "ancestorTitles": [],
           "failureMessages": [],
-          "fullName":
-            "Returns only the first matching member of a collection by filter function",
+          "fullName": "Throws if a collection contains duplicate ids",
           "location": null,
           "status": "passed",
-          "title":
-            "Returns only the first matching member of a collection by filter function"
+          "title": "Throws if a collection contains duplicate ids"
         },
         {
           "ancestorTitles": [],
           "failureMessages": [],
-          "fullName": "Throws if no matching member was found",
+          "fullName": "Supports storing collection members without ids",
           "location": null,
           "status": "passed",
-          "title": "Throws if no matching member was found"
+          "title": "Supports storing collection members without ids"
         }
       ],
-      "endTime": 1534853288051,
+      "endTime": 1534886739585,
       "message": "",
-      "name":
-        "C:\\Users\\dan\\repos\\restls\\src\\utils\\getCollectionMember.test.ts",
-      "startTime": 1534853286790,
+      "name": "C:\\Users\\dan\\repos\\restls\\src\\setCollection.test.ts",
+      "startTime": 1534886738324,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName": "Updates a member of a collection by id",
+          "location": null,
+          "status": "passed",
+          "title": "Updates a member of a collection by id"
+        },
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName":
+            "Rejects with an error if no matching member id was found",
+          "location": null,
+          "status": "passed",
+          "title": "Rejects with an error if no matching member id was found"
+        },
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName": "Supports adding a member without an id to a collection",
+          "location": null,
+          "status": "passed",
+          "title": "Supports adding a member without an id to a collection"
+        },
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName": "Resolves with the updated member",
+          "location": null,
+          "status": "passed",
+          "title": "Resolves with the updated member"
+        },
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName":
+            "Rejects with an error if the specified collection was not found",
+          "location": null,
+          "status": "passed",
+          "title":
+            "Rejects with an error if the specified collection was not found"
+        },
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName": "Outputs debugging information if specified",
+          "location": null,
+          "status": "passed",
+          "title": "Outputs debugging information if specified"
+        },
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName": "Supports faking latency with a timeout",
+          "location": null,
+          "status": "passed",
+          "title": "Supports faking latency with a timeout"
+        },
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName": "Applies fake latency even if rejecting",
+          "location": null,
+          "status": "passed",
+          "title": "Applies fake latency even if rejecting"
+        }
+      ],
+      "endTime": 1534886739624,
+      "message": "",
+      "name": "C:\\Users\\dan\\repos\\restls\\src\\PUT.test.ts",
+      "startTime": 1534886738308,
       "status": "passed",
       "summary": ""
     },
@@ -128,10 +200,10 @@
           "title": "Applies fake latency even if rejecting"
         }
       ],
-      "endTime": 1534853288071,
+      "endTime": 1534886739625,
       "message": "",
       "name": "C:\\Users\\dan\\repos\\restls\\src\\PATCH.test.ts",
-      "startTime": 1534853286790,
+      "startTime": 1534886738293,
       "status": "passed",
       "summary": ""
     },
@@ -212,79 +284,10 @@
           "title": "Applies fake latency even if rejecting"
         }
       ],
-      "endTime": 1534853288076,
+      "endTime": 1534886739625,
       "message": "",
       "name": "C:\\Users\\dan\\repos\\restls\\src\\GET.test.ts",
-      "startTime": 1534853286806,
-      "status": "passed",
-      "summary": ""
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [],
-          "failureMessages": [],
-          "fullName": "Updates a member of a collection by id",
-          "location": null,
-          "status": "passed",
-          "title": "Updates a member of a collection by id"
-        },
-        {
-          "ancestorTitles": [],
-          "failureMessages": [],
-          "fullName":
-            "Rejects with an error if no matching member id was found",
-          "location": null,
-          "status": "passed",
-          "title": "Rejects with an error if no matching member id was found"
-        },
-        {
-          "ancestorTitles": [],
-          "failureMessages": [],
-          "fullName": "Resolves with the updated member",
-          "location": null,
-          "status": "passed",
-          "title": "Resolves with the updated member"
-        },
-        {
-          "ancestorTitles": [],
-          "failureMessages": [],
-          "fullName":
-            "Rejects with an error if the specified collection was not found",
-          "location": null,
-          "status": "passed",
-          "title":
-            "Rejects with an error if the specified collection was not found"
-        },
-        {
-          "ancestorTitles": [],
-          "failureMessages": [],
-          "fullName": "Outputs debugging information if specified",
-          "location": null,
-          "status": "passed",
-          "title": "Outputs debugging information if specified"
-        },
-        {
-          "ancestorTitles": [],
-          "failureMessages": [],
-          "fullName": "Supports faking latency with a timeout",
-          "location": null,
-          "status": "passed",
-          "title": "Supports faking latency with a timeout"
-        },
-        {
-          "ancestorTitles": [],
-          "failureMessages": [],
-          "fullName": "Applies fake latency even if rejecting",
-          "location": null,
-          "status": "passed",
-          "title": "Applies fake latency even if rejecting"
-        }
-      ],
-      "endTime": 1534853288080,
-      "message": "",
-      "name": "C:\\Users\\dan\\repos\\restls\\src\\PUT.test.ts",
-      "startTime": 1534853286806,
+      "startTime": 1534886738308,
       "status": "passed",
       "summary": ""
     },
@@ -373,10 +376,49 @@
           "title": "Applies fake latency even if rejecting"
         }
       ],
-      "endTime": 1534853288080,
+      "endTime": 1534886739625,
       "message": "",
       "name": "C:\\Users\\dan\\repos\\restls\\src\\DELETE.test.ts",
-      "startTime": 1534853286790,
+      "startTime": 1534886738308,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName":
+            "Returns only the first matching member of a collection by id",
+          "location": null,
+          "status": "passed",
+          "title":
+            "Returns only the first matching member of a collection by id"
+        },
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName":
+            "Returns only the first matching member of a collection by filter function",
+          "location": null,
+          "status": "passed",
+          "title":
+            "Returns only the first matching member of a collection by filter function"
+        },
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName": "Throws if no matching member was found",
+          "location": null,
+          "status": "passed",
+          "title": "Throws if no matching member was found"
+        }
+      ],
+      "endTime": 1534886739747,
+      "message": "",
+      "name":
+        "C:\\Users\\dan\\repos\\restls\\src\\utils\\getCollectionMember.test.ts",
+      "startTime": 1534886739641,
       "status": "passed",
       "summary": ""
     },
@@ -407,36 +449,10 @@
           "title": "Throws if the specified collection cannot be parsed"
         }
       ],
-      "endTime": 1534853288192,
+      "endTime": 1534886739747,
       "message": "",
       "name": "C:\\Users\\dan\\repos\\restls\\src\\getCollection.test.ts",
-      "startTime": 1534853288088,
-      "status": "passed",
-      "summary": ""
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [],
-          "failureMessages": [],
-          "fullName": "Stores a collection by key as JSON",
-          "location": null,
-          "status": "passed",
-          "title": "Stores a collection by key as JSON"
-        },
-        {
-          "ancestorTitles": [],
-          "failureMessages": [],
-          "fullName": "Throws if a collection contains duplicate ids",
-          "location": null,
-          "status": "passed",
-          "title": "Throws if a collection contains duplicate ids"
-        }
-      ],
-      "endTime": 1534853288192,
-      "message": "",
-      "name": "C:\\Users\\dan\\repos\\restls\\src\\setCollection.test.ts",
-      "startTime": 1534853288093,
+      "startTime": 1534886739638,
       "status": "passed",
       "summary": ""
     },
@@ -459,11 +475,11 @@
           "title": "Throws if no item in localStorage has the specified key"
         }
       ],
-      "endTime": 1534853288208,
+      "endTime": 1534886739747,
       "message": "",
       "name":
         "C:\\Users\\dan\\repos\\restls\\src\\utils\\getLocalStorageItem.test.ts",
-      "startTime": 1534853288094,
+      "startTime": 1534886739643,
       "status": "passed",
       "summary": ""
     },
@@ -538,10 +554,10 @@
           "title": "Applies fake latency even if rejecting"
         }
       ],
-      "endTime": 1534853288232,
+      "endTime": 1534886739787,
       "message": "",
       "name": "C:\\Users\\dan\\repos\\restls\\src\\POST.test.ts",
-      "startTime": 1534853288083,
+      "startTime": 1534886739600,
       "status": "passed",
       "summary": ""
     }

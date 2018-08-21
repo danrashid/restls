@@ -3,7 +3,7 @@ import { getCollectionMember } from "./utils";
 import { IMember } from "./interfaces/member";
 import { Where } from "./types/where";
 
-export const DELETE = <T extends IMember>(
+export const DELETE = <T extends IMember | IMember[]>(
   collectionName: string,
   where: Where | IMember["id"],
   debug = false,
